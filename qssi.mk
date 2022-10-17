@@ -163,8 +163,6 @@ endif
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
 # Audio configuration file
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/qssi/qssi.mk
--include $(TOPDIR)vendor/qcom/opensource/commonsys/audio/configs/qssi/qssi.mk
 AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 USE_LIB_PROCESS_GROUP := true
 
@@ -299,10 +297,3 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Enable allowlist for some aosp packages that should not be scanned in a "stopped" state
 # Some CTS test case failed after enabling feature config_stopSystemPackagesByDefault
 PRODUCT_PACKAGES += initial-package-stopped-states-aosp.xml
-
-###################################################################################
-# This is the End of target.mk file.
-# Now, Pickup other split product.mk files:
-###################################################################################
-$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/*.mk)
-###################################################################################
